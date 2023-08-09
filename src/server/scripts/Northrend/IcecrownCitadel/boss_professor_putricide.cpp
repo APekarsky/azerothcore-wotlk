@@ -1213,7 +1213,7 @@ public:
             spell = sSpellMgr->GetSpellForDifficultyFromSpell(spell, caster);
 
             int32 damage = spell->Effects[EFFECT_0].CalcValue(caster);
-            damage = damage * pow(2.5f, GetStackAmount());
+            damage = damage * pow(3.0f, GetStackAmount());
 
             GetTarget()->CastCustomSpell(triggerSpell, SPELLVALUE_BASE_POINT0, damage, GetTarget(), true, nullptr, aurEff, GetCasterGUID());
         }
