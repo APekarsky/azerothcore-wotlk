@@ -1212,14 +1212,9 @@ public:
             SpellInfo const* spell = sSpellMgr->AssertSpellInfo(triggerSpell);
             spell = sSpellMgr->GetSpellForDifficultyFromSpell(spell, caster);
 
-            int32 damage = spell->Effects[EFFECT_0].CalcValue(caster);
+            int32 damage = spell->Effects[EFFECT_0].CalcValue(caster) * 1,2f;
             damage = damage * pow(3.0f, GetStackAmount());
-            if (IsHeroic())
-            {
-                damage = damage * 1.2f;
-                return damage;
-            }
-
+            
             GetTarget()->CastCustomSpell(triggerSpell, SPELLVALUE_BASE_POINT0, damage, GetTarget(), true, nullptr, aurEff, GetCasterGUID());
         }
 
