@@ -1214,6 +1214,8 @@ public:
 
             int32 damage = spell->Effects[EFFECT_0].CalcValue(caster);
             damage = damage * pow(3.0f, GetStackAmount());
+            if (IsHeroic())
+                damage = damage * 1.2f;
 
             GetTarget()->CastCustomSpell(triggerSpell, SPELLVALUE_BASE_POINT0, damage, GetTarget(), true, nullptr, aurEff, GetCasterGUID());
         }
